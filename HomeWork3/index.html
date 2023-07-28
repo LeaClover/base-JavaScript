@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="cubeDegreeClick()">Задание 1</button>
+    <button onclick="salaryMinusTaxClick()">Задание 2</button>
+    <button onclick="findMaxNumberClick()">Задание 3</button>
+    <button onclick="calculateClick()">Задание 4</button>
+    <script>
+        function cubeDegreeClick() {
+            const cubeDegree = (userNumber) => {
+                return Math.pow(userNumber, 3) + Math.pow(userNumber + 1, 3);
+            }
+
+            let userNumber = Number(prompt(`Введите число: `));
+            alert(`Результат: ${cubeDegree(userNumber)}`)
+            <!-- console.log(`Результат: ${cubeDegree(userNumber)}`); -->
+        }
+
+        function salaryMinusTaxClick() {
+            const salaryMinusTax = (userSalary) => {
+                if (Number.isInteger(userSalary)) {
+                    let userTax = userSalary * 0.13;
+                    return alert(`Зарплата: ${userSalary}; Налог(13%): ${userTax}; Зарплата-Налог: ${userSalary - userTax}`);
+                } else {
+                    return alert(`Введено неверное значение!`);
+                }
+            }
+
+            let userSalary = Number(prompt(`Введите вашу зарплату: `));
+            salaryMinusTax(userSalary);
+        }
+
+        function findMaxNumberClick() {
+            const findMaxNumber = (firstNumber, secondNumber, thirdNumber) => {
+                if (Number.isInteger(firstNumber) && Number.isInteger(secondNumber) && Number.isInteger(thirdNumber)) {
+                    let max;
+                    if (firstNumber >= secondNumber) {
+                        max = firstNumber;
+                    } else {
+                        max = secondNumber;
+                    }
+                    if (thirdNumber > max) {
+                        max = thirdNumber;
+                    }
+                    return alert(`Максимальное число равно ${max}`);
+                } else {
+                    alert(`Введено неверное значение!!!`);
+                }
+            }
+
+            let firstNumber = Number(prompt(`Введите первое число: `));
+            let secondNumber = Number(prompt(`Введите второе число: `));
+            let thirdNumber = Number(prompt(`Введите третье число: `));
+            findMaxNumber(firstNumber, secondNumber, thirdNumber);
+        }
+
+        function calculateClick() {
+            const getSum = (firstNumber, secondNumber) => {
+                return firstNumber + secondNumber;
+            }
+
+            const getDiff = (firstNumber, secondNumber) => {
+                if (firstNumber > secondNumber) {
+                    return firstNumber - secondNumber;
+                } else {
+                    return secondNumber - firstNumber;
+                }
+            }
+
+            const getMult = (firstNumber, secondNumber) => {
+                return firstNumber * secondNumber;
+            }
+
+            const getDiv = (firstNumber, secondNumber) => {
+                if (secondNumber === 0) {
+                    return alert(`На ноль делить нельзя!!!`);
+                } else {
+                    return firstNumber / secondNumber;
+                }
+            }
+
+            let firstNumber = Number(prompt(`Введите первое число: `));
+            let secondNumber = Number(prompt(`Введите второе число: `));
+
+            alert(`Действия с числами ${firstNumber} и ${secondNumber}:
+            1. Сложение: ${getSum(firstNumber, secondNumber)}
+            2. Разность (из большего вычесть меньшее): ${getDiff(firstNumber, secondNumber)}
+            3. Умножение: ${getMult(firstNumber, secondNumber)}
+            4. Деление: ${getDiv(firstNumber, secondNumber)}`);
+        }
+
+    </script>
+</body>
+
+</html>
